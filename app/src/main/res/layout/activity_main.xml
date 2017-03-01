@@ -17,6 +17,7 @@
         tools:context="com.robertkiszelirk.guardiannewsapp.MainActivity">
 
         <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/select_date"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -65,19 +66,18 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10"
-            android:gravity="center"
-            android:background="@color/listViewBackground">
+            android:gravity="center">
             <ProgressBar
                 style="?android:attr/progressBarStyleLarge"
                 android:layout_width="@dimen/progress_bar_width"
                 android:layout_height="@dimen/progress_bar_height"/>
         </android.support.v7.widget.LinearLayoutCompat>
 
-        <!-- Empty view is only visible when the list has no items. -->
         <TextView
             android:id="@+id/empty"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
             android:textAppearance="?android:textAppearanceMedium"
             android:textSize="@dimen/empty_view_text_size"
             android:textColor="@color/colorPrimaryDark"

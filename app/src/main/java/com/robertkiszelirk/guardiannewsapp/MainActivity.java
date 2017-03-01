@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         // Find reference for empty view
         emptyView = (TextView) findViewById(R.id.empty);
+        emptyView.setText(R.string.no_news_found);
         // Find reference to the article List View
         articleListView = (ListViewCompat) findViewById(R.id.article_list_view);
         // Find a reference to the article Adapter
@@ -453,7 +454,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
     // Handle query,refresh list view
-    private void handleQuery(String searchStringQ, String fromDateQ, String toDateQ, int searchPageQ) {
+    private void handleQuery(String searchStringQ, String fromDateQ, String toDateQ, int searchPageQ){
+
+        emptyView.setVisibility(View.GONE);
         // Select URL
         String url;
         if(searchSection == null) {
@@ -483,10 +486,22 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (data != null && data.size() > 0) {
             articleAdapter.addAll(data);
         }else{
-            emptyView.setText(R.string.no_news_found);
         }
         // Get number of pages
         pagesCount = getPagesCount();
+        // If no article
+        if(pagesCount == 0){
+            articleListView.setVisibility(View.GONE);
+            articleListView.setEmptyView(emptyView);
+            if (articleAdapter!= null)
+            {articleAdapter.clear();}
+            progressBarLayout.setVisibility(View.GONE);
+            emptyView.setText(getString(R.string.no_news_found));
+        }else{
+            //Show listview, hide progress bar while loading
+            progressBarLayout.setVisibility(View.GONE);
+            articleListView.setVisibility(View.VISIBLE);
+        }
         // Set pages text
         pageText.setText(getString(R.string.page) +currentPage + getString(R.string.of) + pagesCount);
         // Handle one page up down button visibility
@@ -502,9 +517,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             pageDown.setVisibility(View.VISIBLE);
             pageUp.setVisibility(View.INVISIBLE);
         }
-        //Show progressbar, hide list view while loading
-        progressBarLayout.setVisibility(View.GONE);
-        articleListView.setVisibility(View.VISIBLE);
 
     }
     // When loader reset

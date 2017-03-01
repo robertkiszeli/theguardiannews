@@ -85,6 +85,17 @@
             android:layout_below="@+id/toolbar"
             android:visibility="gone"/>
 
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="@dimen/empty_view_text_size"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:visibility="gone"/>
+
         <android.support.v7.widget.LinearLayoutCompat
             android:id="@+id/progress_bar_layout"
             android:layout_width="0dp"
