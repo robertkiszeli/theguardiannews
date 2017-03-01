@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GuardianNewsApp</string>
+    <string name="app_name">Guardian News App</string>
     <string-array name="navigation_drawer_list">
         <item>Fresh News</item>
         <item>World</item>

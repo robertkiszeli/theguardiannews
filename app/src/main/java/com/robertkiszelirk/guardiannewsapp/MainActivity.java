@@ -29,11 +29,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import static com.robertkiszelirk.guardiannewsapp.QueryUtils.getPagesCount;
@@ -69,9 +67,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private AppCompatImageButton pageDown = null;
     // Calendar to get the date
     private static final Calendar CALENDAR = Calendar.getInstance();
-    // Buttons to set from-to date
-    private static AppCompatButton FROM_DATE_BUTTON;
-    private static AppCompatButton TO_DATE_BUTTON;
     // Navigation Drawer Layout
     private DrawerLayout drawerLayout = null;
     // Navigation Drawer Toggle Button
@@ -144,11 +139,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // Find reference for progressbar
         progressBarLayout = (LinearLayoutCompat) findViewById(R.id.progress_bar_layout);
         // Find reference for from date button
-        FROM_DATE_BUTTON = (AppCompatButton) findViewById(R.id.from_date_button);
+        AppCompatButton fromDateButton = (AppCompatButton) findViewById(R.id.from_date_button);
         // Set text for from date button
-        FROM_DATE_BUTTON.setText(FROM_DATE);
+        fromDateButton.setText(FROM_DATE);
         // Handle click on from date button
-        FROM_DATE_BUTTON.setOnClickListener(new View.OnClickListener() {
+        fromDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Create dialog fragment for date picker
@@ -163,11 +158,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
         // Find reference for to date button
-        TO_DATE_BUTTON = (AppCompatButton) findViewById(R.id.to_date_button);
+        AppCompatButton toDateButton = (AppCompatButton) findViewById(R.id.to_date_button);
         // Set text for to date button
-        TO_DATE_BUTTON.setText(TO_DATE);
+        toDateButton.setText(TO_DATE);
         // Handle click on to date button
-        TO_DATE_BUTTON.setOnClickListener(new View.OnClickListener() {
+        toDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Create dialog fragment for date picker
@@ -295,6 +290,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                         if(getSupportActionBar() != null) {
                             getSupportActionBar().setTitle(getString(R.string.fresh_news));
                         }
+                        // Set starting positions
+                        currentPage = 1;
+                        pageDown.setVisibility(View.INVISIBLE);
+                        pageUp.setVisibility(View.VISIBLE);
                         // Refresh list view
                         if(checkNetworkConnection()) {
                             handleQuery(searchString, FROM_DATE, TO_DATE, currentPage);
@@ -516,114 +515,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             articleAdapter.clear();
         }
     }
-    // Set from date
-    public static void setFromDate(int year, int month, int day){
-        // Check valid date, today or earlier
-        if ((year <= CALENDAR.get(Calendar.YEAR))&&
-                (month <= CALENDAR.get(Calendar.MONTH))&&
-                (day <= CALENDAR.get(Calendar.DAY_OF_MONTH))){
-            // Set year
-            String sYear = String.valueOf(year);
-            // Set month
-            String sMonth;
-            month += 1;
-            if (month < 10){
-                sMonth = "0" + String.valueOf(month);
-            }else{
-                sMonth = String.valueOf(month);
-            }
-            // Set day
-            String sDay;
-            if (day < 10){
-                sDay = "0" + String.valueOf(day);
-            }else{
-                sDay = String.valueOf(day);
-            }
-            // Construct string
-            String selectedDate = sYear + "-" + sMonth + "-" + sDay;
-            // Create custom date format
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            // Dates null
-            Date fromDateParse = null;
-            Date toDateParse = null;
-            // Set dates
-            try {
-                fromDateParse = sdf.parse(selectedDate);
-                toDateParse = sdf.parse(TO_DATE);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            // Set date long
-            long fromDateLong = 0;
-            if (fromDateParse != null) {
-                fromDateLong = fromDateParse.getTime();
-            }
-            long toDateLong = 0;
-            if (toDateParse != null) {
-                toDateLong = toDateParse.getTime();
-            }
-            // Check if date valid
-            if (fromDateLong <= toDateLong) {
-                FROM_DATE_BUTTON.setText(selectedDate);
-                FROM_DATE = selectedDate;
-            }
-        }
-    }
-
-    public static void setToDate(int year, int month, int day){
-        // Check valid date, today or earlier
-        if ((year <= CALENDAR.get(Calendar.YEAR))&&
-                (month <= CALENDAR.get(Calendar.MONTH))&&
-                (day <= CALENDAR.get(Calendar.DAY_OF_MONTH))){
-            // Set year
-            String sYear = String.valueOf(year);
-            // Set month
-            String sMonth;
-            month += 1;
-            if (month < 10){
-                sMonth = "0" + String.valueOf(month);
-            }else{
-                sMonth = String.valueOf(month);
-            }
-            // Set day
-            String sDay;
-            if (day < 10){
-                sDay = "0" + String.valueOf(day);
-            }else{
-                sDay = String.valueOf(day);
-            }
-            // Construct string
-            String selectedDate = sYear + "-" + sMonth + "-" + sDay;
-            // Create custom date format
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            // Dates null
-            Date fromDateParse = null;
-            Date toDateParse = null;
-            // Set dates
-            try {
-                fromDateParse = sdf.parse(FROM_DATE);
-                toDateParse = sdf.parse(selectedDate);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            // Set date long
-            long fromDateLong = 0;
-            if (fromDateParse != null) {
-                fromDateLong = fromDateParse.getTime();
-            }
-            long toDateLong = 0;
-            if (toDateParse != null) {
-                toDateLong = toDateParse.getTime();
-            }
-            // Check if date valid
-            if (fromDateLong <= toDateLong) {
-                TO_DATE_BUTTON.setText(selectedDate);
-                TO_DATE = selectedDate;
-            }
-
-        }
-
-    }
 
     protected void handleNavigationDrawerClick(String sString, DrawerLayout dLayout, ListView dList){
         searchSection = sString;
@@ -644,7 +535,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 getSupportActionBar().setTitle(getString(R.string.news) + searchSection + "/" + searchString);
             }
         }
-        // Refresh list view
         // Refresh list view
         if(checkNetworkConnection()) {
             handleQuery(searchString, FROM_DATE, TO_DATE, currentPage);

@@ -14,6 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:background="@color/dividerColor"
+        android:gravity="center"
         tools:context="com.robertkiszelirk.guardiannewsapp.MainActivity">
 
         <android.support.v7.widget.LinearLayoutCompat
@@ -39,12 +40,12 @@
                 style="@style/dateButtonLand"/>
             <android.support.v7.widget.AppCompatImageButton
                 android:id="@+id/refresh_button"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="3"
-                android:layout_marginRight="@dimen/land_refresh_button_margin_right"
                 android:background="?android:selectableItemBackground"
-                android:src="@mipmap/refresh"/>
+                android:src="@mipmap/refresh"
+                android:layout_gravity="center_horizontal"/>
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/pages_text"
                 android:layout_width="match_parent"
