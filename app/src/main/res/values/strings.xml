@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">GuardianNewsApp</string>
+    <string-array name="navigation_drawer_list">
+        <item>Fresh News</item>
+        <item>World</item>
+        <item>Sport</item>
+        <item>Football</item>
+        <item>Culture</item>
+        <item>Business</item>
+        <item>Fashion</item>
+        <item>Technology</item>
+        <item>Travel</item>
+        <item>Money</item>
+        <item>Science</item>
+    </string-array>
+
+    <string name="from">From :</string>
+    <string name="to">to</string>
+    <string name="fresh_news">"Fresh news "</string>
+    <string name="news">"News "</string>
+    <string translatable="false" name="date_type">dateType</string>
+    <string translatable="false" name="date_picker">datePicker</string>
+    <string name="no_connection">No internet connection\ncheck connection and restart</string>
+    <string name="page">"Page "</string>
+    <string name="of">" of "</string>
+    <string name="navigation">Navigation!</string>
+    <string name="news_for">"News for "</string>
+    <string name="no_news_found">No news found</string>
+
+    <string translatable="false" name="drawer_open">Open navigation drawer</string>
+    <string translatable="false" name="drawer_close">Close navigation drawer</string>
+    <string translatable="false" name="from_date">fromDate</string>
+    <string translatable="false" name="to_date">toDate</string>
+    <string translatable="false" name="search_section">searchSection</string>
+    <string translatable="false" name="search_string">searchString</string>
+    <string translatable="false" name="current_page">currentPage</string>
+    <string translatable="false" name="world">world</string>
+    <string translatable="false" name="sport">sport</string>
+    <string translatable="false" name="football">football</string>
+    <string translatable="false" name="culture">culture</string>
+    <string translatable="false" name="business">business</string>
+    <string translatable="false" name="fashion">fashion</string>
+    <string translatable="false" name="technology">technology</string>
+    <string translatable="false" name="travel">travel</string>
+    <string translatable="false" name="money">money</string>
+    <string translatable="false" name="science">science</string>
+    <string translatable="false" name="base_url">https://content.guardianapis.com/search?q=</string>
+    <string translatable="false" name="url_tags"><![CDATA[&tags=news]]></string>
+    <string translatable="false" name="url_from_date"><![CDATA[&from-date=]]></string>
+    <string translatable="false" name="url_to_date"><![CDATA[&to-date=]]></string>
+    <string translatable="false" name="url_page"><![CDATA[&page=]]></string>
+    <string translatable="false" name="url_end"><![CDATA[&use-date=published&order-by=newest&show-tags=contributor&show-fields=thumbnail,short-url&api-key=test]]></string>
+    <string translatable="false" name="url_section"><![CDATA[&section=]]></string>
+</resources>

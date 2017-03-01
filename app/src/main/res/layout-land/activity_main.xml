@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/dividerColor"
+        tools:context="com.robertkiszelirk.guardiannewsapp.MainActivity">
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/lightPrimaryColor"
+            android:gravity="center"
+            android:elevation="6dp"
+            android:orientation="vertical">
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/dateTextLand"
+                android:layout_marginLeft="@dimen/land_from_text_maargin_left"
+                android:text="@string/from"/>
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/from_date_button"
+                style="@style/dateButtonLand"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/dateTextLand"
+                android:text="to"/>
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/to_date_button"
+                style="@style/dateButtonLand"/>
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/refresh_button"
+                android:layout_width="40dp"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:layout_marginRight="@dimen/land_refresh_button_margin_right"
+                android:background="?android:selectableItemBackground"
+                android:src="@mipmap/refresh"/>
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/pages_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:textSize="@dimen/land_pages_text_size"
+                android:textColor="@color/primaryText"
+                android:gravity="center"/>
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:background="@color/lightPrimaryColor"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/page_down"
+                style="@style/pageButtonLand"
+                android:layout_marginLeft="@dimen/land_left_page_button_margin_left"
+                android:src="@mipmap/left"
+                android:visibility="invisible"/>
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/page_up"
+                style="@style/pageButtonLand"
+                android:layout_marginRight="@dimen/land_right_page_button_margin_right"
+                android:src="@mipmap/right"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.ListViewCompat
+            android:id="@+id/article_list_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:layout_below="@+id/toolbar"
+            android:visibility="gone"/>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/progress_bar_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center">
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="@dimen/progress_bar_width"
+                android:layout_height="@dimen/progress_bar_height"/>
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/drawer_list"
+        android:layout_width="@dimen/land_navigation_drawer_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="@color/lightPrimaryColor"
+        android:choiceMode="singleChoice"
+        android:overScrollHeader="@drawable/guardian"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        />
+
+</android.support.v4.widget.DrawerLayout>

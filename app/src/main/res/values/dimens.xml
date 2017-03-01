@@ -1,0 +1,71 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="date_layout_elevation">6dp</dimen>
+
+    <dimen name="from_text_margin_left">8dp</dimen>
+
+    <dimen name="date_text_size">16sp</dimen>
+
+    <dimen name="refresh_button_height">40dp</dimen>
+    <dimen name="refresh_button_width">40dp</dimen>
+    <dimen name="refresh_button_margin_right">8dp</dimen>
+
+    <dimen name="progress_bar_height">100dp</dimen>
+    <dimen name="progress_bar_width">100dp</dimen>
+
+    <dimen name="empty_view_text_size">24sp</dimen>
+
+    <dimen name="page_button_height">40dp</dimen>
+    <dimen name="page_button_width">40dp</dimen>
+    <dimen name="left_page_button_margin_left">40dp</dimen>
+    <dimen name="right_page_button_margin_right">40dp</dimen>
+
+    <dimen name="page_text_height">40dp</dimen>
+    <dimen name="page_text_size">16sp</dimen>
+
+    <dimen name="navigation_drawer_width">240dp</dimen>
+    <dimen name="navigation_drawer_divider_height">0dp</dimen>
+
+    <dimen name="land_from_text_maargin_left">8dp</dimen>
+    <dimen name="land_from_text_size">16sp</dimen>
+
+    <dimen name="land_refresh_button_margin_right">8dp</dimen>
+
+    <dimen name="land_pages_text_size">16sp</dimen>
+    <dimen name="land_page_button_height">40dp</dimen>
+    <dimen name="land_page_button_width">40dp</dimen>
+    <dimen name="land_left_page_button_margin_left">40dp</dimen>
+    <dimen name="land_right_page_button_margin_right">40dp</dimen>
+
+    <dimen name="land_navigation_drawer_width">240dp</dimen>
+    <dimen name="list_item_card_view_margin">15dp</dimen>
+    <dimen name="list_item_card_view_corner_radius">4dp</dimen>
+    <dimen name="list_item_card_view_elevation">4dp</dimen>
+
+    <dimen name="list_item_card_view_image_width">160dp</dimen>
+    <dimen name="list_item_card_view_image_height">100dp</dimen>
+    <dimen name="list_item_card_view_image_margin_top">6dp</dimen>
+    <dimen name="list_item_card_view_image_margin_left">6dp</dimen>
+
+    <dimen name="list_item_card_view_section_text_size">12dp</dimen>
+    <dimen name="list_item_card_view_section_text_margin_left">6dp</dimen>
+
+    <dimen name="list_item_card_view_title_text_size">16dp</dimen>
+    <dimen name="list_item_card_view_title_text_margin_top">4dp</dimen>
+    <dimen name="list_item_card_view_title_text_margin_bottom">4dp</dimen>
+    <dimen name="list_item_card_view_title_text_margin_left">6dp</dimen>
+    <dimen name="list_item_card_view_title_text_margin_right">6dp</dimen>
+
+    <dimen name="list_item_card_view_time_text_size">12dp</dimen>
+    <dimen name="list_item_card_view_time_text_margin_right">6dp</dimen>
+    <dimen name="list_item_card_view_time_text_margin_top">4dp</dimen>
+
+    <dimen name="list_item_card_view_contributor_text_size">12dp</dimen>
+    <dimen name="list_item_card_view_contributor_text_margin_right">6dp</dimen>
+    <dimen name="list_item_card_view_contributor_text_margin_top">4dp</dimen>
+
+
+</resources>
