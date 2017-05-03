@@ -5,25 +5,25 @@ package com.robertkiszelirk.guardiannewsapp;
 import android.graphics.Bitmap;
 import android.support.annotation.Nullable;
 
-public class BaseArticleData {
+class BaseArticleData {
 
     //FOR THE NEWS TITLE STRING
-    private String articleTitle;
+    private final String articleTitle;
 
     //FOR THE NEWS SECTION STRING
-    private String articleSection;
+    private final String articleSection;
 
     //FOR THE CONTRIBUTOR NAME;
-    private String articleContributorName;
+    private final  String articleContributorName;
 
     //FOR THE NEWS THUMBNAIL
-    private Bitmap articleThumbnail;
+    private final Bitmap articleThumbnail;
 
     //FOR THE PUBLISH TIME
-    private String articlePublishTime;
+    private final String articlePublishTime;
 
     //FOR THE NEWS ARTICLE
-    private String articleURL;
+    private final String articleURL;
 
     //CREATES A BASE ARTICLE DATA OBJECT
     public BaseArticleData(String articleSection, String articleTitle, String articleContributorName,

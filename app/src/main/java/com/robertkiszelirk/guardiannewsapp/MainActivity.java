@@ -28,7 +28,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         articleAdapter = new ArticleAdapter(MainActivity.this,new ArrayList<BaseArticleData>());
         // Set adapter on the list view to populate it
         articleListView.setAdapter(articleAdapter);
-        // Handle listview item click, open article website
+        // Handle list view item click, open article website
         articleListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -272,7 +271,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // Add header to list view
         drawerList.addHeaderView(header);
         // Set array adapter for navigation drawer list view
-        ArrayAdapter adapter = new ArrayAdapter(this,R.layout.drawer_list_item_layout,getResources().getStringArray(R.array.navigation_drawer_list));
+        @SuppressWarnings("unchecked") ArrayAdapter adapter = new ArrayAdapter(this,R.layout.drawer_list_item_layout,getResources().getStringArray(R.array.navigation_drawer_list));
         // Populate navigation drawer list view
         drawerList.setAdapter(adapter);
         // Handle navigation drawer list view click
@@ -376,7 +375,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         drawerToggle.setDrawerIndicatorEnabled(true);
         drawerLayout.addDrawerListener(drawerToggle);
     }
-    // Sync toogle button to navigation drawer
+    // Sync toggle button to navigation drawer
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -474,6 +473,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     // Create article loader
     @Override
     public Loader<List<BaseArticleData>> onCreateLoader(int id, Bundle args) {
+        //noinspection unchecked
         return new ArticleLoader(MainActivity.this,args);
     }
     // On load finished
@@ -486,6 +486,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (data != null && data.size() > 0) {
             articleAdapter.addAll(data);
         }else{
+            articleListView.setVisibility(View.GONE);
+            articleListView.setEmptyView(emptyView);
+            if (articleAdapter!= null)
+            {articleAdapter.clear();}
+            progressBarLayout.setVisibility(View.GONE);
+            emptyView.setText(getString(R.string.no_news_found));
         }
         // Get number of pages
         pagesCount = getPagesCount();
@@ -498,7 +504,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             progressBarLayout.setVisibility(View.GONE);
             emptyView.setText(getString(R.string.no_news_found));
         }else{
-            //Show listview, hide progress bar while loading
+            //Show list view, hide progress bar while loading
             progressBarLayout.setVisibility(View.GONE);
             articleListView.setVisibility(View.VISIBLE);
         }
@@ -528,7 +534,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
     }
 
-    protected void handleNavigationDrawerClick(String sString, DrawerLayout dLayout, ListView dList){
+    private void handleNavigationDrawerClick(String sString, DrawerLayout dLayout, ListView dList){
         searchSection = sString;
         // Set starting positions
         currentPage = 1;
@@ -570,7 +576,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         outState.putInt(getString(R.string.current_page), currentPage);
     }
 
-    protected boolean checkNetworkConnection(){
+    private boolean checkNetworkConnection(){
         // Check network connectivity
         ConnectivityManager connectivityManager = (ConnectivityManager) MainActivity.this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();

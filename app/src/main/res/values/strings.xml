@@ -20,7 +20,7 @@
     <string name="news">"News "</string>
     <string translatable="false" name="date_type">dateType</string>
     <string translatable="false" name="date_picker">datePicker</string>
-    <string name="no_connection">No internet connection\ncheck connection and restart</string>
+    <string name="no_connection">No internet connection\n check connection and restart</string>
     <string name="page">"Page "</string>
     <string name="of">" of "</string>
     <string name="navigation">Navigation!</string>

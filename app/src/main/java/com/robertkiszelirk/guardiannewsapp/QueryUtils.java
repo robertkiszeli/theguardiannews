@@ -25,7 +25,7 @@ class QueryUtils {
     // Number of pages
     private static int pages = 1;
     // Blank method
-    public QueryUtils(){
+    private QueryUtils(){
 
     }
     // Get JSON file from HTTP
@@ -33,13 +33,9 @@ class QueryUtils {
         // Set URL
         URL url = createUrl(requestUrl);
         // Create JSON
-        String jsonResponse = null;
-        // Try to fill JSON
-        try{
-            jsonResponse = makeHttpRequest(url);
-        }catch (IOException e){
-            Log.e(LOG_TAG, "Problem making the HTTP request",e);
-        }
+        String jsonResponse;
+        // Fill JSON
+        jsonResponse = makeHttpRequest(url);
         // Extract JSON file
         return extractArticlesFromJson(jsonResponse);
     }
@@ -125,7 +121,7 @@ class QueryUtils {
         return articles;
     }
     // Make HTTP request
-    private static String makeHttpRequest(URL url) throws IOException{
+    private static String makeHttpRequest(URL url) {
         // Response JSON
         String jsonResponse = "";
         // Check if URL valid
@@ -164,7 +160,11 @@ class QueryUtils {
             }
             // At end close stream
             if(inputStream != null){
-                inputStream.close();
+                try {
+                    inputStream.close();
+                }catch(IOException ex){
+                    Log.e(LOG_TAG, "I/O exception occurred");
+                }
             }
         }
         // Return JSON file
@@ -174,12 +174,12 @@ class QueryUtils {
     private static String readFromInputStream(InputStream inputStream) throws IOException{
         // Create string builder
         StringBuilder readString = new StringBuilder();
-        // Check inputstream valid
+        // Check input stream valid
         if(inputStream != null){
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String line = bufferedReader.readLine();
-            // REad strem line by line
+            // REad stream line by line
             while(line != null){
                 readString.append(line);
                 line = bufferedReader.readLine();
@@ -198,7 +198,7 @@ class QueryUtils {
         }catch(MalformedURLException e){
             Log.e(LOG_TAG,"Problem building URL", e);
         }
-        // REturn URL
+        // Return URL
         return url;
     }
     // Return number of pages

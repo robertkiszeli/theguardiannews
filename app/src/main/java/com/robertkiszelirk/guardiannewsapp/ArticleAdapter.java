@@ -16,10 +16,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-/**
- * Created by kiszeli on 2017.02.22..
- */
-
 class ArticleAdapter extends ArrayAdapter<BaseArticleData> {
     private static final String LOG_TAG = ArticleAdapter.class.getSimpleName();
     // Get article list
@@ -42,7 +38,7 @@ class ArticleAdapter extends ArrayAdapter<BaseArticleData> {
         if(currentArticle != null){
             // Set image
             ImageView articleThumbnail = (ImageView) listItemView.findViewById(R.id.article_thumbnail_image_view);
-            articleThumbnail.setImageBitmap(formatImageFromURL(currentArticle.getArticleThumbnail()));
+            articleThumbnail.setImageBitmap(formatImageFromBitmap(currentArticle.getArticleThumbnail()));
             // Set section
             TextView section = (TextView) listItemView.findViewById(R.id.article_section_text_view);
             section.setText(currentArticle.getArticleSection());
@@ -59,7 +55,7 @@ class ArticleAdapter extends ArrayAdapter<BaseArticleData> {
         // Return list item
         return listItemView;
     }
-    // Fromat publish date
+    // Format publish date
     private String formatPublishTime(final String time) {
         // If not the correct base format
         String rTime = "N.A.";
@@ -69,7 +65,7 @@ class ArticleAdapter extends ArrayAdapter<BaseArticleData> {
                 // Create current format
                 SimpleDateFormat currentSDF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
                 // Create new format
-                SimpleDateFormat newSDF = new SimpleDateFormat("yyyy.MM.dd / HH:mm");//("MM dd, yyyy");
+                SimpleDateFormat newSDF = new SimpleDateFormat("yyyy.MM.dd / HH:mm");
                 // Parse time
                 rTime = newSDF.format(currentSDF.parse(time));
             } catch (ParseException parseEx) {
@@ -83,7 +79,7 @@ class ArticleAdapter extends ArrayAdapter<BaseArticleData> {
         return rTime;
     }
     // Get the thumbnail image
-    private Bitmap formatImageFromURL(Bitmap articleThumbnail) {
+    private Bitmap formatImageFromBitmap(Bitmap articleThumbnail) {
         // Bitmap for image
         Bitmap returnBitmap;
         // Check thumbnail valid

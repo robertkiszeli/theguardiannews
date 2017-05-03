@@ -5,7 +5,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatButton;
+import android.widget.Button;
 import android.widget.DatePicker;
 
 import java.text.ParseException;
@@ -20,7 +20,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Get curent date type
+        // Get current date type
         dateType = getArguments().getInt("dateType");
         // Get current date
         final Calendar c = Calendar.getInstance();
@@ -40,7 +40,6 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
             case 2:setToDate(year,month,day);
                 break;
         }
-
     }
 
     private void setFromDate(int year, int month, int day){
@@ -83,7 +82,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         // Check date valid from is before to date and neither after today
         if((System.currentTimeMillis() > millisTo)&&(millisFrom <= millisTo)){
             // Set date to button
-            AppCompatButton fromDate = (AppCompatButton) getActivity().findViewById(R.id.from_date_button);
+            Button fromDate = (Button) getActivity().findViewById(R.id.from_date_button);
             fromDate.setText(selectedDate);
             MainActivity.FROM_DATE = selectedDate;
         }
@@ -128,7 +127,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         // Check date valid from is before to date and neither after today
         if((System.currentTimeMillis() > millisTo)&&(millisFrom <= millisTo)){
             // Set date to button
-            AppCompatButton toDate = (AppCompatButton) getActivity().findViewById(R.id.to_date_button);
+            Button toDate = (Button) getActivity().findViewById(R.id.to_date_button);
             toDate.setText(selectedDate);
             MainActivity.TO_DATE = selectedDate;
         }
