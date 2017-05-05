@@ -14,7 +14,7 @@ class BaseArticleData {
     private final String articleSection;
 
     //FOR THE CONTRIBUTOR NAME;
-    private final  String articleContributorName;
+    private final String articleContributorName;
 
     //FOR THE NEWS THUMBNAIL
     private final Bitmap articleThumbnail;
@@ -27,7 +27,7 @@ class BaseArticleData {
 
     //CREATES A BASE ARTICLE DATA OBJECT
     public BaseArticleData(String articleSection, String articleTitle, String articleContributorName,
-                        Bitmap articleThumbnail,String articlePublishTime, String articleURL){
+                           Bitmap articleThumbnail, String articlePublishTime, String articleURL) {
 
         //SETTING THE OBJECT DATA
         this.articleTitle = articleTitle;
@@ -53,7 +53,9 @@ class BaseArticleData {
 
     //RETURNS THE ARTICLE CONTRIBUTOR NAME
     @Nullable
-    public String getArticleContributorName() {return articleContributorName;}
+    public String getArticleContributorName() {
+        return articleContributorName;
+    }
 
     //RETURNS THE ARTICLE THUMBNAIL
     @Nullable

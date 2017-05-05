@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
+public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
     // Date type to check if it is fromDate or toDate
     private int dateType = 0;
 
@@ -34,31 +34,33 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
         // Send back date to main activity
-        switch (dateType){
-            case 1:setFromDate(year,month,day);
+        switch (dateType) {
+            case 1:
+                setFromDate(year, month, day);
                 break;
-            case 2:setToDate(year,month,day);
+            case 2:
+                setToDate(year, month, day);
                 break;
         }
     }
 
-    private void setFromDate(int year, int month, int day){
+    private void setFromDate(int year, int month, int day) {
 
         // Set year
         String sYear = String.valueOf(year);
         // Set month
         String sMonth;
         month += 1;
-        if (month < 10){
+        if (month < 10) {
             sMonth = "0" + String.valueOf(month);
-        }else{
+        } else {
             sMonth = String.valueOf(month);
         }
         // Set day
         String sDay;
-        if (day < 10){
+        if (day < 10) {
             sDay = "0" + String.valueOf(day);
-        }else{
+        } else {
             sDay = String.valueOf(day);
         }
         // Construct string
@@ -80,7 +82,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         long millisFrom = dateFrom != null ? dateFrom.getTime() : 0;
         long millisTo = dateTo != null ? dateTo.getTime() : 0;
         // Check date valid from is before to date and neither after today
-        if((System.currentTimeMillis() > millisTo)&&(millisFrom <= millisTo)){
+        if ((System.currentTimeMillis() > millisTo) && (millisFrom <= millisTo)) {
             // Set date to button
             Button fromDate = (Button) getActivity().findViewById(R.id.from_date_button);
             fromDate.setText(selectedDate);
@@ -88,23 +90,23 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         }
     }
 
-    private void setToDate(int year, int month, int day){
+    private void setToDate(int year, int month, int day) {
 
         // Set year
         String sYear = String.valueOf(year);
         // Set month
         String sMonth;
         month += 1;
-        if (month < 10){
+        if (month < 10) {
             sMonth = "0" + String.valueOf(month);
-        }else{
+        } else {
             sMonth = String.valueOf(month);
         }
         // Set day
         String sDay;
-        if (day < 10){
+        if (day < 10) {
             sDay = "0" + String.valueOf(day);
-        }else{
+        } else {
             sDay = String.valueOf(day);
         }
         // Construct string
@@ -125,7 +127,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         long millisFrom = dateFrom != null ? dateFrom.getTime() : 0;
         long millisTo = dateTo != null ? dateTo.getTime() : 0;
         // Check date valid from is before to date and neither after today
-        if((System.currentTimeMillis() > millisTo)&&(millisFrom <= millisTo)){
+        if ((System.currentTimeMillis() > millisTo) && (millisFrom <= millisTo)) {
             // Set date to button
             Button toDate = (Button) getActivity().findViewById(R.id.to_date_button);
             toDate.setText(selectedDate);

@@ -10,11 +10,13 @@ import java.util.List;
 class ArticleLoader extends AsyncTaskLoader {
 
     private final Bundle pBundle;
+
     // Article loader
-    public ArticleLoader(final Context context, final Bundle bundle){
+    public ArticleLoader(final Context context, final Bundle bundle) {
         super(context);
         pBundle = bundle;
     }
+
     // Start loading article
     @Override
     protected void onStartLoading() {
@@ -27,7 +29,7 @@ class ArticleLoader extends AsyncTaskLoader {
         // Create base article list
         List<BaseArticleData> articleList = null;
         // If bundle has data get articles
-        if(pBundle != null){
+        if (pBundle != null) {
             articleList = QueryUtils.fetchArticleData(pBundle.getString("uri"));
         }
         // Return articles list

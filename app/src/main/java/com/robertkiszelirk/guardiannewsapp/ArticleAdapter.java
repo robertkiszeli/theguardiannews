@@ -18,6 +18,7 @@ import java.util.List;
 
 class ArticleAdapter extends ArrayAdapter<BaseArticleData> {
     private static final String LOG_TAG = ArticleAdapter.class.getSimpleName();
+
     // Get article list
     ArticleAdapter(Context context, List<BaseArticleData> articleList) {
         super(context, -1, articleList);
@@ -29,13 +30,13 @@ class ArticleAdapter extends ArrayAdapter<BaseArticleData> {
         // Get list view
         View listItemView = convertView;
         // Check if list view exists if not create
-        if (listItemView == null){
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.item_list_layout,parent,false);
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.item_list_layout, parent, false);
         }
         // Get current article
         BaseArticleData currentArticle = getItem(position);
         // If article is not null
-        if(currentArticle != null){
+        if (currentArticle != null) {
             // Set image
             ImageView articleThumbnail = (ImageView) listItemView.findViewById(R.id.article_thumbnail_image_view);
             articleThumbnail.setImageBitmap(formatImageFromBitmap(currentArticle.getArticleThumbnail()));
@@ -55,6 +56,7 @@ class ArticleAdapter extends ArrayAdapter<BaseArticleData> {
         // Return list item
         return listItemView;
     }
+
     // Format publish date
     private String formatPublishTime(final String time) {
         // If not the correct base format
@@ -78,6 +80,7 @@ class ArticleAdapter extends ArrayAdapter<BaseArticleData> {
 
         return rTime;
     }
+
     // Get the thumbnail image
     private Bitmap formatImageFromBitmap(Bitmap articleThumbnail) {
         // Bitmap for image

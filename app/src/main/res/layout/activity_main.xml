@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="@color/dividerColor"
+        android:orientation="vertical"
         tools:context="com.robertkiszelirk.guardiannewsapp.MainActivity">
 
         <android.support.v7.widget.LinearLayoutCompat
@@ -23,33 +21,38 @@
             android:background="@color/lightPrimaryColor"
             android:gravity="center"
             android:orientation="horizontal">
+
             <android.support.v7.widget.AppCompatTextView
+                style="@style/dateText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/from_text_margin_left"
                 android:layout_marginStart="@dimen/from_text_margin_left"
-                android:text="@string/from"
-                style="@style/dateText"/>
+                android:text="@string/from" />
+
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/from_date_button"
-                style="@style/dateButton"/>
+                style="@style/dateButton" />
+
             <android.support.v7.widget.AppCompatTextView
+                style="@style/dateText"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="@string/to"
-                style="@style/dateText"/>
+                android:layout_weight="1"
+                android:text="@string/to" />
+
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/to_date_button"
-                style="@style/dateButton"/>
+                style="@style/dateButton" />
+
             <android.support.v7.widget.AppCompatImageButton
                 android:id="@+id/refresh_button"
                 android:layout_width="@dimen/refresh_button_height"
                 android:layout_height="@dimen/refresh_button_width"
-                android:layout_marginRight="@dimen/refresh_button_margin_right"
                 android:layout_marginEnd="@dimen/refresh_button_margin_right"
+                android:layout_marginRight="@dimen/refresh_button_margin_right"
                 android:background="?android:selectableItemBackground"
-                android:src="@mipmap/refresh"/>
+                android:src="@mipmap/refresh" />
         </android.support.v7.widget.LinearLayoutCompat>
 
         <android.support.v7.widget.ListViewCompat
@@ -57,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <android.support.v7.widget.LinearLayoutCompat
             android:id="@+id/progress_bar_layout"
@@ -65,10 +68,11 @@
             android:layout_height="0dp"
             android:layout_weight="10"
             android:gravity="center">
+
             <ProgressBar
                 style="?android:attr/progressBarStyleLarge"
                 android:layout_width="@dimen/progress_bar_width"
-                android:layout_height="@dimen/progress_bar_height"/>
+                android:layout_height="@dimen/progress_bar_height" />
         </android.support.v7.widget.LinearLayoutCompat>
 
         <TextView
@@ -76,11 +80,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="9"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="@dimen/empty_view_text_size"
-            android:textColor="@color/colorPrimaryDark"
             android:gravity="center"
-            android:visibility="gone"/>
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/empty_view_text_size"
+            android:visibility="gone" />
 
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -89,27 +93,30 @@
             android:background="@color/lightPrimaryColor"
             android:gravity="center"
             android:orientation="horizontal">
+
             <android.support.v7.widget.AppCompatImageButton
                 android:id="@+id/page_down"
                 style="@style/pageButton"
                 android:layout_marginLeft="@dimen/left_page_button_margin_left"
                 android:layout_marginStart="@dimen/left_page_button_margin_left"
                 android:src="@mipmap/left"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
+
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/pages_text"
                 android:layout_width="0dp"
-                android:layout_weight="4"
                 android:layout_height="@dimen/page_text_height"
-                android:textSize="@dimen/page_text_size"
+                android:layout_weight="4"
+                android:gravity="center"
                 android:textColor="@color/primaryText"
-                android:gravity="center"/>
+                android:textSize="@dimen/page_text_size" />
+
             <android.support.v7.widget.AppCompatImageButton
-                style="@style/pageButton"
                 android:id="@+id/page_up"
-                android:layout_marginRight="@dimen/right_page_button_margin_right"
+                style="@style/pageButton"
                 android:layout_marginEnd="@dimen/right_page_button_margin_right"
-                android:src="@mipmap/right"/>
+                android:layout_marginRight="@dimen/right_page_button_margin_right"
+                android:src="@mipmap/right" />
         </android.support.v7.widget.LinearLayoutCompat>
 
     </LinearLayout>
@@ -121,9 +128,8 @@
         android:layout_gravity="start"
         android:background="@color/lightPrimaryColor"
         android:choiceMode="singleChoice"
-        android:overScrollHeader="@drawable/guardian"
         android:divider="@android:color/transparent"
         android:dividerHeight="@dimen/navigation_drawer_divider_height"
-        />
+        android:overScrollHeader="@drawable/guardian" />
 
 </android.support.v4.widget.DrawerLayout>
